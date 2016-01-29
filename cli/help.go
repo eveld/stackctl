@@ -13,7 +13,7 @@ import (
 // HelpFunc is a cli.HelpFunc that can is used to output the help for Stackctl.
 func HelpFunc(commands map[string]cli.CommandFactory) string {
 	commonNames := map[string]struct{}{
-		"status": struct{}{},
+		"create": struct{}{},
 	}
 
 	// Determine the maximum key length, and classify based on type
@@ -33,7 +33,7 @@ func HelpFunc(commands map[string]cli.CommandFactory) string {
 	}
 
 	var buf bytes.Buffer
-	buf.WriteString("usage: stackctl [-version] [-help] <command> [args]\n\n")
+	buf.WriteString("usage: stackctl [--version] [--help] <command> [args]\n\n")
 	buf.WriteString("Common commands:\n")
 	buf.WriteString(listCommands(commonCommands, maxKeyLen))
 	buf.WriteString("\nAll other commands:\n")

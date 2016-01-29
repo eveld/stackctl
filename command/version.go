@@ -7,8 +7,8 @@ import (
 
 // VersionCommand is a Command implementation prints the version.
 type VersionCommand struct {
-	VersionInfo *version.VersionInfo
-	Ui          cli.Ui
+	Info *version.Info
+	UI   cli.Ui
 }
 
 // Help gives the help of the version command.
@@ -18,11 +18,11 @@ func (c *VersionCommand) Help() string {
 
 // Run executes the version command.
 func (c *VersionCommand) Run(_ []string) int {
-	c.Ui.Output(c.VersionInfo.String())
+	c.UI.Output(c.Info.String())
 	return 0
 }
 
 // Synopsis gives a short description of the version command.
 func (c *VersionCommand) Synopsis() string {
-	return "Prints the Vault version"
+	return "Prints the Stackctl version"
 }

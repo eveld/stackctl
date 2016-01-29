@@ -7,6 +7,7 @@ import (
 	"syscall"
 
 	"github.com/eveld/stackctl/command"
+	"github.com/eveld/stackctl/version"
 
 	"github.com/mitchellh/cli"
 )
@@ -25,7 +26,21 @@ func Commands(metaPtr *command.Meta) map[string]cli.CommandFactory {
 		}
 	}
 
-	return map[string]cli.CommandFactory{}
+	return map[string]cli.CommandFactory{
+		"create": func() (cli.Command, error) {
+			return &command.CreateCommand{
+				Meta: meta,
+			}, nil
+		},
+		"version": func() (cli.Command, error) {
+			versionInfo := version.GetVersion()
+
+			return &command.VersionCommand{
+				Info: versionInfo,
+				UI:   meta.Ui,
+			}, nil
+		},
+	}
 }
 
 // makeShutdownCh returns a channel that can be used for shutdown

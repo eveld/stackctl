@@ -8,7 +8,7 @@ import (
 // VersionCommand is a Command implementation prints the version.
 type VersionCommand struct {
 	Info *version.Info
-	UI   cli.Ui
+	Ui   cli.Ui
 }
 
 // Help gives the help of the version command.
@@ -18,7 +18,7 @@ func (c *VersionCommand) Help() string {
 
 // Run executes the version command.
 func (c *VersionCommand) Run(_ []string) int {
-	c.UI.Output(c.Info.String())
+	c.Ui.Output(c.Info.String())
 	return 0
 }
 

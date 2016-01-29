@@ -37,7 +37,7 @@ func Commands(metaPtr *command.Meta) map[string]cli.CommandFactory {
 
 			return &command.VersionCommand{
 				Info: versionInfo,
-				UI:   meta.Ui,
+				Ui:   meta.Ui,
 			}, nil
 		},
 	}

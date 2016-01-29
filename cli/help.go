@@ -10,7 +10,7 @@ import (
 	"github.com/mitchellh/cli"
 )
 
-// HelpFunc is a cli.HelpFunc that can is used to output the help for Stackctl.
+// HelpFunc is a cli.HelpFunc that can be used to output the help.
 func HelpFunc(commands map[string]cli.CommandFactory) string {
 	commonNames := map[string]struct{}{
 		"create": struct{}{},
